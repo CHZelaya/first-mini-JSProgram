@@ -1,23 +1,23 @@
-function gameGuessRandomNumber(min = 1, max = 10) {
-     // Setting up random number generator
-    min = Math.ceil(min);
-    max = Math.floor(max);
-     // Saving random number into variable named randomNumber
-    let randomNumber = Math.floor(Math.random() * (max - min)) + min;
-     //console.log(randomNumber);
-     // Setting up User's random number guess
-    function userGuess(num, correct, incorrect) {    
-        if (num == randomNumber) correct() 
-    else incorrect();
-    }
+// function gameGuessRandomNumber(min = 1, max = 10) {
+//      // Setting up random number generator
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//      // Saving random number into variable named randomNumber
+//     let randomNumber = Math.floor(Math.random() * (max - min)) + min;
+//      //console.log(randomNumber);
+//      // Setting up User's random number guess
+//     function userGuess(num, correct, incorrect) {    
+//         if (num == randomNumber) correct() 
+//     else incorrect();
+//     }
 
-    userGuess(
-    prompt("Please guess a number between 1 and 10"),
-        function () { alert("Correct! Please play again.");},
-        function () { alert(`Incorrect, The number was ${randomNumber}! Dice rolled! New number...Try again`);}
-    );
+//     userGuess(
+//     prompt("Please guess a number between 1 and 10"),
+//         function () { alert("Correct! Please play again.");},
+//         function () { alert(`Incorrect, The number was ${randomNumber}! Dice rolled! New number...Try again`);}
+//     );
 
-}
+// }
 
 // gameGuessRandomNumber();
 
@@ -25,7 +25,7 @@ let randomNumber = Math.floor( 1 + 10*Math.random() );
 
 console.log(randomNumber);
 
-function guessRandomNumber() {
+let guessRandomNumber = () => {
         // Setting up userGuess
         function userGuess(correct,incorrect) {
         var userNumber = Number( document.getElementById("guess").value);
@@ -39,9 +39,11 @@ function guessRandomNumber() {
 
         userGuess(
             function correct() {document.getElementById("question").innerHTML = 
-            (`The number I picked was ${randomNumber} You guess correctly! Congratulations`);},
+            (`Congratulations! <br> You guessed correctly!<br>I've picked a new number, Try again!`);
+            randomNumber = Math.floor( 1 + 10*Math.random() );
+            console.log(randomNumber) },
             function incorrect() {document.getElementById('question').innerHTML = (
-                `The number I picked was ${randomNumber} You guessed incorrectly, please try again!`
+                `You guessed incorrectly, please try again!`
             );}
         );
 }
@@ -50,6 +52,9 @@ function guessRandomNumber() {
 
 
 
+
         // Event Listeners 
 
-document.getElementById("guess-button").onclick = guessRandomNumber();
+document.getElementById("guess-button").onclick = guessRandomNumber;
+document.getElementById("guess-button").keypress= guessRandomNumber;
+
