@@ -19,7 +19,7 @@ let guessRandomNumber = () => {
             function correct() {document.getElementById("question").innerHTML = 
             (`Congratulations! <br> You guessed correctly!<br>I've picked a new number, Try again!`);
             randomNumberGenerator = Math.floor( 1 + 5*Math.random() );
-            console.log(randomNumber) },
+            console.log(randomNumberGenerator) },
             function incorrect() {document.getElementById('question').innerHTML = (
                 `You guessed incorrectly, please try again!`
             );}
