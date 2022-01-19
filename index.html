@@ -10,20 +10,18 @@
   <body>
     <div id="wrapper">
       <div id="box">
-        <p id="header">Between 1 - 10 Guessing Game</p>
+        <p id="header">1-2-5 GameTron 3000</p>
         <div id="container">
           <p id="question">
-            I've picked a number between 1 and 10, Try and guess it.
+            I've picked a number between 1 and 5, Try and guess it.
           </p>
         </div>
-        <div id="reniatnoc">
-          <p>
-            <input type="text" id="guess" />
-            <button id="guess-button">Guess</button>
-          </p>
-        </div>
-
-        <div id="response"><p id="message"></p></div>
+        <form id="form" action="#" onSubmit="handle">
+          <input type="text" id="guess" />
+          <button id="guess-button" onclick="guessRandomNumber();">
+            Guess
+          </button>
+        </form>
       </div>
     </div>
     <script src="script.js"></script>
