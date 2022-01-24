@@ -62,33 +62,33 @@ let correct = () => {
 };
 
 let hot = () => {
-        return document.getElementById("question").innerHTML = `${guess} is hot`,
+        return document.getElementById("question").innerHTML = `You're warm...`,
                 clearInput();
 
 };
 let hotter = () => {
         document.getElementById(
                 "question"
-        ).innerHTML = `${guess} is getting hotter!`;
+        ).innerHTML = `You're getting hotter!`;
         clearInput();
 };
 
 let hottest = () => {
-        document.getElementById("question").innerHTML = `${guess} is on fire!`;
+        document.getElementById("question").innerHTML = `You're on fire!!`;
         clearInput();
 };
 
 let cold = () => {
         document.getElementById(
                 "question"
-        ).innerHTML = `${guess} is a wee bit nipply...`;
+        ).innerHTML = `It's getting a wee bit nipply...`;
         clearInput();
 };
 
 let coldest = () => {
         document.getElementById(
                 "question"
-        ).innerHTML = `${guess} is frozen solid.`;
+        ).innerHTML = `So cold, you're frozen solid.`;
         clearInput();
 };
 
