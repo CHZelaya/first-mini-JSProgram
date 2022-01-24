@@ -1,63 +1,101 @@
-// Making Random Number Generator
+//Setting up initial variables
 
-let randomNumberGenerator = Math.floor( 1 + 5*Math.random() );
+// Creating a random number
+const genereateRandomNumber = () => Math.floor(1 + 100 * Math.random());
+let randomNumberGenerator = genereateRandomNumber()
+console.log("The Random Number is:", randomNumberGenerator);
 
+// Returning Users guess
 
-let guessRandomNumber = () => {
-        // Setting up userGuess
-        function userGuess(correct,incorrect) {
-        var userNumber = Number( document.getElementById("guess").value);
-        document.getElementById("question").value = "";
-        if ( isNaN(userNumber)|| userNumber < 1 || userNumber > 5) {
-            document.getElementById("question").innerHTML = 
-            ('Bad Input! Please try again with an integer between 1 and 5')
-        } else if (userNumber == randomNumberGenerator) correct() 
-        else incorrect();
+let getGuess = () => {
+        return Number(document.getElementById('guess').value)
+};
+
+// Function to call to start the game, along with if...else statements
+
+let checkGuess = () => {
+        let guess = getGuess();
+        let difference = 0;
+        console.log('The users guess is :', guess)
+        if (isNaN(guess) || guess < 0 || guess > 100)
+                return (document.getElementById(
+                        "question"
+                ).innerHTML = `Bad Input! Please enter an integer between 1 and 100`),
+                        clearInput();
+        else if (guess == randomNumberGenerator) {
+                return correct();
+
+        } else if (guess < randomNumberGenerator) {
+                difference = randomNumberGenerator - guess;
+                console.log('The difference between the two numbers is:', difference);
+
+        } else if (guess > randomNumberGenerator) {
+                difference = guess - randomNumberGenerator;
+                console.log('The difference between the two numbers is:', difference);
+
+        } if (difference >= 1 && difference <= 5) {
+                return hottest();
+
+        } else if (difference > 5 && difference <= 15) {
+                return hotter();
+
+        } else if (difference > 15 && difference <= 30) {
+                return hot();
+
+        } else if (difference > 45 && difference <= 64) {
+                return cold();
+
+        } else if (difference < 65) {
+                return coldest();
         }
+};
 
-        userGuess(
-            function correct() {document.getElementById("question").innerHTML = 
-            (`Congratulations! <br> You guessed correctly!<br>I've picked a new number, Try again!`);
-            randomNumberGenerator = Math.floor( 1 + 5*Math.random() );
-            console.log(randomNumberGenerator) },
-            function incorrect() {document.getElementById('question').innerHTML = (
-                `You guessed incorrectly, please try again!`
-            );}
-        );
+// Functions to run depending on outcome of game
+
+let correct = () => {
+        randomNumberGenerator = genereateRandomNumber();
+        document.getElementById(
+                "question"
+        ).innerHTML = `Congratulations! <br> You guessed correctly <br/>I've picked a new number, Try again!`;
+        clearInput();
+        console.log("The new random number is:", randomNumberGenerator);
+};
+
+let hot = () => {
+        return document.getElementById("question").innerHTML = `${guess} is hot`,
+                clearInput();
+
+};
+let hotter = () => {
+        document.getElementById(
+                "question"
+        ).innerHTML = `${guess} is getting hotter!`;
+        clearInput();
+};
+
+let hottest = () => {
+        document.getElementById("question").innerHTML = `${guess} is on fire!`;
+        clearInput();
+};
+
+let cold = () => {
+        document.getElementById(
+                "question"
+        ).innerHTML = `${guess} is a wee bit nipply...`;
+        clearInput();
+};
+
+let coldest = () => {
+        document.getElementById(
+                "question"
+        ).innerHTML = `${guess} is frozen solid.`;
+        clearInput();
+};
+
+let clearInput = () => {
+        document.getElementById("guess").value = " ";
+};
+
+function handle(e) {
+        e.preventDefault();
 }
-
-        // Event Listeners 
-function handle(e){
-    e.preventDefault();
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////
-
-// Original Script, before throwing in all the DOM elements. // 
-
-// function gameGuessRandomNumber(min = 1, max = 10) {
-//      // Setting up random number generator
-//     min = Math.ceil(min);
-//     max = Math.floor(max);
-//      // Saving random number into variable named randomNumber
-//     let randomNumber = Math.floor(Math.random() * (max - min)) + min;
-//      //console.log(randomNumber);
-//      // Setting up User's random number guess
-//     function userGuess(num, correct, incorrect) {    
-//         if (num == randomNumber) correct() 
-//     else incorrect();
-//     }
-
-//     userGuess(
-//     prompt("Please guess a number between 1 and 10"),
-//         function () { alert("Correct! Please play again.");},
-//         function () { alert(`Incorrect, The number was ${randomNumber}! Dice rolled! New number...Try again`);}
-//     );
-
-// }
-
-// gameGuessRandomNumber();
-
-
-
-
