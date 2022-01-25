@@ -25,13 +25,13 @@ let checkGuess = () => {
         else if (guess == randomNumberGenerator) {
                 return correct();
 
-        } else if (guess < randomNumberGenerator) {
-                difference = randomNumberGenerator - guess;
+        } else if (guess < randomNumberGenerator || guess > randomNumberGenerator) {
+                difference = Math.abs(randomNumberGenerator - guess);
                 console.log('The difference between the two numbers is:', difference);
 
-        } else if (guess > randomNumberGenerator) {
-                difference = guess - randomNumberGenerator;
-                console.log('The difference between the two numbers is:', difference);
+        // } else if (guess > randomNumberGenerator) {
+        //         difference = guess - randomNumberGenerator;
+        //         console.log('The difference between the two numbers is:', difference);
 
         } if (difference >= 1 && difference <= 5) {
                 return hottest();
