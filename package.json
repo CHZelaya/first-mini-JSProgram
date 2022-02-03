@@ -1,0 +1,23 @@
+{
+  "name": "first-js-program",
+  "version": "1.0.0",
+  "description": "My very first JavaScript program created through known JavaScript Documentation and referencing from my notes. Very basic and bare bones, but man am I proud of it. Will be saving it here as a milestone to see how far I've grown in a few months.",
+  "main": "script.js",
+  "dependencies": {
+    "eslint": "^8.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CHZelaya/first-mini-JSProgram.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CHZelaya/first-mini-JSProgram/issues"
+  },
+  "homepage": "https://github.com/CHZelaya/first-mini-JSProgram#readme"
+}
